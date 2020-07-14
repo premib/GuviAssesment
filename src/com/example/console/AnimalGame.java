@@ -31,11 +31,46 @@ public class AnimalGame {
     }
 
     void addToSpeakingCompetition(List<String> animal){
-        speakingCompetitors.addAll(animal);
+        try{
+            for (String s : animal) {
+                boolean safe = false;
+                for (Animal value : animalList){
+                    if (((Animal) value).getName().equals(s)) {
+                        safe = true;
+                        speakingCompetitors.add(s);
+                        break;
+                    }
+                }
+                if(!safe){
+                    throw new RuntimeException("Error Caught: Only Animals included in the Game can be added to Competition!");
+                }
+            }
+
+        }
+        catch (RuntimeException e){
+            System.out.println(e);
+        }
     }
 
     void addToSpeakingCompetition(String animal){
-        speakingCompetitors.add(animal);
+        try{
+            boolean safe = false;
+            for (Animal value : animalList){
+
+                if (((Animal) value).getName().equals(animal)) {
+                    safe = true;
+                    speakingCompetitors.add(animal);
+                    break;
+                }
+            }
+            if(!safe){
+                throw new RuntimeException("Error Caught: Only Animals included in the Game can be added to Competition!");
+            }
+        }
+        catch (RuntimeException e){
+            System.out.println("Error Caught: Only Animals included in the Game can be added to Competition!");
+        }
+
     }
 
     void printAnimalTypeCountsNotInCompetition(){
