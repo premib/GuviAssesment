@@ -1,11 +1,7 @@
 package com.example.console;
 
 import com.example.animal.Animal;
-import com.example.animal.Cat;
-import com.example.animal.Dog;
-import com.example.wild.Lion;
-import com.example.wild.Tiger;
-import com.example.wild.WildAnimal;
+
 
 import java.util.*;
 import java.util.stream.Collectors;
