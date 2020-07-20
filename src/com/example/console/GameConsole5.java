@@ -11,7 +11,7 @@ import java.util.List;
 public class GameConsole5 extends Thread{
 
 
-    private List<Animal> animalList;
+    private static List<Animal> animalList= new ArrayList<>();
     private void create(){
         for (; ; ) {
             try {
@@ -20,7 +20,7 @@ public class GameConsole5 extends Thread{
                 e.printStackTrace();
             }
             Dog reference = new Dog("Scooby", "Ganesh");
-            animalList.add(reference);
+            GameConsole5.animalList.add(reference);
             destroy(reference);
         }
     }
@@ -36,7 +36,7 @@ public class GameConsole5 extends Thread{
         }
     }
     public void run() {
-
+        create();
 
     }
 
@@ -47,7 +47,7 @@ public class GameConsole5 extends Thread{
         System.out.println(String.format("Current used Memory : %6.2f mb", runtime.totalMemory() / (1024.0 * 1024)));
         System.out.println(String.format("Free Memory         : %6.2f mb", runtime.freeMemory() / (1024.0 * 1024)));
 
-        GameConsole4 gc51 = new GameConsole4();
+        GameConsole5 gc51 = new GameConsole5();
         GameConsole5 gc52 = new GameConsole5();
         Thread t1 = new Thread(gc51);
         Thread t2 = new Thread(gc52);
